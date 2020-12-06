@@ -24,8 +24,8 @@ type Lap struct {
 	Dist          float64 `xml:"DistanceMeters,omitempty"`
 	Calories      float64 `xml:",omitempty"`
 	MaxSpeed      float64 `xml:"MaximumSpeed,omitempty"`
-	AvgHr         float64 `xml:"AverageHeartRateBpm>Value,omitempty"`
-	MaxHr         float64 `xml:"MaximumHeartRateBpm>Value,omitempty"`
+	AvgHr         float64 `xml:"AverageHeartRateBpm,omitempty"`
+	MaxHr         float64 `xml:"MaximumHeartRateBpm,omitempty"`
 	Intensity     string  `xml:",omitempty"`
 	TriggerMethod string  `xml:",omitempty"`
 	Trk           *Track  `xml:"Track"`
@@ -38,21 +38,21 @@ type Track struct {
 type Activity struct {
 	Sport   string `xml:"Sport,attr,omitempty"`
 	Id      time.Time
-	Laps    []Lap  `xml:"Lap,omitempty"`
-	Creator Device `xml:"Creator,omitempty"`
+	Laps    []Lap   `xml:"Lap,omitempty"`
+	Creator *Device `xml:"Creator,omitempty"`
 }
 
 type Device struct {
 	Name      string       `xml:",omitempty"`
-	UnitId    int          `xml:",omitempty"`
+	UnitID    int          `xml:"UnitId,omitempty"`
 	ProductID string       `xml:",omitempty"`
 	Version   BuildVersion `xml:",omitempty"`
 }
 
 type TCXDB struct {
-	XMLName xml.Name    `xml:"TrainingCenterDatabase"`
+	XMLName xml.Name    `xml:"http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 TrainingCenterDatabase"`
 	Acts    *Activities `xml:"Activities"`
-	Auth    Author      `xml:"Author"`
+	Auth    *Author     `xml:"Author,omitempty"`
 }
 
 type Activities struct {
