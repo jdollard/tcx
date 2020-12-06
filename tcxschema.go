@@ -40,6 +40,7 @@ type Activity struct {
 	Id      time.Time
 	Laps    []Lap   `xml:"Lap,omitempty"`
 	Creator *Device `xml:"Creator,omitempty"`
+	Notes   string  `xml:",omitempty"`
 }
 
 type Device struct {
