@@ -1,9 +1,10 @@
 package tcx
 
 import (
-	"github.com/philhofer/vec"
 	"math"
 	"time"
+
+	"github.com/philhofer/vec"
 )
 
 type TrackSpline struct {
@@ -41,8 +42,8 @@ func (l *LapZeroTimeError) Error() string {
 	return "Lap Time Cannot be <= 0"
 }
 
-//Match lap time to "sec" (in-place)
-func (lap Lap) MatchTime(sec float64) error {
+// Match lap time to "sec" (in-place)
+func (lap *Lap) MatchTime(sec float64) error {
 	isec := int(math.Floor(sec))
 	if isec <= 0 {
 		return new(LapZeroTimeError)
