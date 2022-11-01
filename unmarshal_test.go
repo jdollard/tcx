@@ -23,5 +23,4 @@ func TestUnmarshal(t *testing.T) {
 		t.Error("Expected lat/long of 37.8765614/-122.4601646")
 		t.Error("Got:", finalPt.Lat, finalPt.Long)
 	}
-	return
 }
