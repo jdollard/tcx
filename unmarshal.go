@@ -2,11 +2,11 @@ package tcx
 
 import (
 	"encoding/xml"
-	"io/ioutil"
+	"os"
 )
 
 func ReadTpts(path string) (track *Track, err error) {
-	filebytes, err := ioutil.ReadFile(path)
+	filebytes, err := os.ReadFile(path)
 	if err != nil {
 		return nil, err
 	}
@@ -16,7 +16,7 @@ func ReadTpts(path string) (track *Track, err error) {
 }
 
 func ReadLap(path string) (lap *Lap, err error) {
-	filebytes, err := ioutil.ReadFile(path)
+	filebytes, err := os.ReadFile(path)
 	if err != nil {
 		return nil, err
 	}
@@ -26,7 +26,7 @@ func ReadLap(path string) (lap *Lap, err error) {
 }
 
 func ReadActivity(path string) (act *Activity, err error) {
-	filebytes, err := ioutil.ReadFile(path)
+	filebytes, err := os.ReadFile(path)
 	if err != nil {
 		return nil, err
 	}
@@ -36,7 +36,7 @@ func ReadActivity(path string) (act *Activity, err error) {
 }
 
 func ReadActivities(path string) (acts *Activities, err error) {
-	filebytes, err := ioutil.ReadFile(path)
+	filebytes, err := os.ReadFile(path)
 	if err != nil {
 		return nil, err
 	}
@@ -46,7 +46,7 @@ func ReadActivities(path string) (acts *Activities, err error) {
 }
 
 func ReadFile(path string) (db *TCXDB, err error) {
-	filebytes, err := ioutil.ReadFile(path)
+	filebytes, err := os.ReadFile(path)
 	if err != nil {
 		return nil, err
 	}
