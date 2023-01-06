@@ -1,4 +1,4 @@
-module github.com/galeone/tcx
+module github.com/jdollard/tcx
 
 go 1.19
 
